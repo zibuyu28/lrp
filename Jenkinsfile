@@ -11,7 +11,7 @@ pipeline {
         }
         stage('build node image') {
             steps {
-                echo ${node_branch}
+                sh 'echo ${node_branch}'
                 sh 'docker rmi x1-node'
                 sh 'git clone -b ${node_branch} https://github.com/okx/x1-node.git'
                 sh 'cd ./x1-node'
