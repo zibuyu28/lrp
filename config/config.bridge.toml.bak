@@ -1,0 +1,60 @@
+[Log]
+Level = "debug"
+Outputs = ["stdout"]
+
+[SyncDB]
+Database = "postgres"
+User = "test_user"
+Password = "test_password"
+Name = "test_db"
+Host = "x1-bridge-db"
+Port = "5432"
+MaxConns = 20
+
+[ClaimTxManager]
+Enabled = true
+FrequencyToMonitorTxs = "1s"
+PrivateKey = {Path = "/pk/keystore.claimtxmanager", Password = "testonly"}
+RetryInterval = "1s"
+RetryNumber = 10
+
+[Etherman]
+L1URL = "http://x1-mock-l1-network:8545"
+L2URLs = ["http://x1-json-rpc:8123"]
+
+[Synchronizer]
+SyncInterval = "1s"
+SyncChunkSize = 100
+
+[BridgeController]
+Store = "postgres"
+Height = 32
+
+[BridgeServer]
+GRPCPort = "9090"
+HTTPPort = "8080"
+CacheSize = 100000
+DefaultPageLimit = 25
+MaxPageLimit = 100
+BridgeVersion = "v1"
+    [BridgeServer.DB]
+    Database = "postgres"
+    User = "test_user"
+    Password = "test_password"
+    Name = "test_db"
+    Host = "x1-bridge-db"
+    Port = "5432"
+    MaxConns = 20
+
+    [BridgeServer.Redis]
+    Addr = "127.0.0.1:6379"
+    Username = ""
+    Password = ""
+    DB = 1
+    MockPrice = true
+
+[NetworkConfig]
+GenBlockNumber = 267 
+PolygonBridgeAddress = "0xFc2f92CBFA1b38a4B38B412F582cf08028cBA9e0"
+PolygonZkEVMGlobalExitRootAddress = "0xEd236da21Ff62bC7B62608AdB818da49E8549fa7"
+L2PolygonBridgeAddresses = ["0xFc2f92CBFA1b38a4B38B412F582cf08028cBA9e0"]
