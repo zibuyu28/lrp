@@ -21,7 +21,7 @@ pipeline {
         }
         stage('build dac image') {
             steps {
-                sh 'echo ${dac_branch}''
+                sh 'echo ${dac_branch}'
                 sh 'docker rmi x1-data-availability'
                 sh 'git clone -b ${dac_branch} https://github.com/okx/x1-data-availability.git'
                 sh 'cd x1-data-availability'
