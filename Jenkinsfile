@@ -1,7 +1,9 @@
 pipeline {
     agent { label 'test-outof-docker' }
     parameters {
-      gitParameter branch: '', branchFilter: '.*', defaultValue: 'release/v0.3.0', name: 'node_branch', quickFilterEnabled: true, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'GitParameterDefinition', useRepository: 'https://github.com/okx/x1-node.git'
+      string defaultValue: 'release/v0.2.0', name: 'node_branch', trim: true
+      string defaultValue: 'release/v0.2.0', name: 'dac_branch', trim: true
+      string defaultValue: 'release/v0.2.0', name: 'contract_branch', trim: true
     }
     stages {
         stage('hello pipeline') {
