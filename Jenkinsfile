@@ -12,7 +12,7 @@ pipeline {
         stage('build node image') {
             steps {
                 sh 'echo ${node_branch}'
-                sh 'docker rmi x1-node'
+                sh 'docker rmi x1-node || echo "no image exist"'
                 sh 'git clone -b ${node_branch} https://github.com/okx/x1-node.git'
                 sh 'cd ./x1-node'
                 sh 'make build-docker'
@@ -22,7 +22,7 @@ pipeline {
         stage('build dac image') {
             steps {
                 sh 'echo ${dac_branch}'
-                sh 'docker rmi x1-data-availability'
+                sh 'docker rmi x1-data-availability || echo "no image exist"'
                 sh 'git clone -b ${dac_branch} https://github.com/okx/x1-data-availability.git'
                 sh 'cd x1-data-availability'
                 sh 'make build-docker'
