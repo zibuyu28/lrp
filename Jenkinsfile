@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent test-outof-docker
     stages {
         stage('hello pipeline') {
             steps {
