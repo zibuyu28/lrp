@@ -1,5 +1,5 @@
 pipeline {
-    agent test-outof-docker
+    agent { label 'test-outof-docker' }
     stages {
         stage('hello pipeline') {
             steps {
